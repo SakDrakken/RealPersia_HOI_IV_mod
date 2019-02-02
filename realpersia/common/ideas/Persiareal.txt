@@ -1,0 +1,284 @@
+ideas = {
+	# MILITARY
+
+	country = {
+			PRS_persian_proudness = {
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				industrial_capacity_factory = 0.08
+				industrial_capacity_dockyard = 0.08
+				conscription_factor = -0.10
+			}
+		}
+
+}
+	political_advisor = {
+
+		PRS_ali_zohayli = {
+
+			picture = generic_political_advisor_arab_3
+
+			allowed = {
+				original_tag = PRS
+			}
+			
+			traits = { captain_of_industry war_industrialist }
+		}
+
+		PRS_reza_khani = {
+
+			picture = generic_political_advisor_arab_3
+
+			allowed = {
+				original_tag = PRS
+			}
+			
+			traits = { captain_of_industry persian_monarchist silent_workhorse compassionate_gentleman}
+		}
+
+		PRS_mahmud_jam = {
+
+			picture = generic_political_advisor_arab_2
+				
+			allowed = {
+				original_tag = PRS
+			}
+			
+			traits = { silent_workhorse ideological_crusader smooth_talking_charmer }
+		}
+
+		PRS_ali_khan_mansour = {
+
+			picture = generic_political_advisor_arab_3
+			
+			allowed = {
+				original_tag = PRS
+			}
+			
+			traits = { quartermaster_general prince_of_terror popular_figurehead }
+		}
+	}
+
+	army_chief = {
+
+		PRS_abdolreza_afkhami = {
+
+			picture = generic_army_arab_3
+			
+			allowed = {
+				original_tag = PRS
+			}		
+			
+			traits = { army_chief_organizational_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		PRS_hassan_majid_firooz = {
+
+			picture = generic_army_arab_1
+			
+			allowed = {
+				original_tag = PRS
+			}
+			
+			traits = { army_chief_offensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	air_chief = {
+
+		PRS_ahmad_khan_nakhjavan = {
+
+			picture = generic_air_arab_1
+			
+			allowed = {
+				original_tag = PRS
+			}
+			
+			traits = { air_chief_all_weather_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		PRS_mohammed_nakhjavani = {
+
+			picture = generic_air_arab_3
+			
+			allowed = {
+				original_tag = PRS
+			}
+			
+			traits = { air_chief_ground_support_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+	}
+
+	navy_chief = {
+
+		PRS_ahmad_khan_nakhjaavan = {
+
+			picture = generic_navy_arab_1
+			
+			allowed = {
+				original_tag = PRS
+			}
+					
+			traits = { navy_chief_decisive_battle_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		PRS_reza_mizani = {
+
+			picture = generic_navy_arab_3
+			
+			allowed = {
+				original_tag = PRS
+			}
+					
+			traits = { navy_chief_maneuver_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	high_command = {
+
+		PRS_mir_afkhami = {
+			
+			picture = generic_army_arab_1
+			
+			allowed = {
+				original_tag = PRS
+			}
+			
+			traits = { army_regrouping_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		PRS_fazlollah_zahedi = {
+
+			picture = generic_army_arab_2
+			
+			allowed = {
+				original_tag = PRS
+			}
+			
+			traits = { army_infantry_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+
+		PRS_ali_razmara = {
+
+			picture = generic_air_arab_3
+			
+			allowed = {
+				original_tag = PRS
+			}
+			
+			traits = { air_airborne_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		PRS_ahmad_mira_khosravani = {
+
+			picture = generic_navy_arab_1
+			
+			allowed = {
+				original_tag = PRS
+			}
+			
+			traits = { navy_submarine_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}	
+
+	theorist = {
+		PRS_mohammed_reza_pahlavi = {
+			
+			picture = generic_army_arab_3
+
+			allowed = {
+				original_tag = PRS
+			}
+			
+			research_bonus = {
+				land_doctrine = 0.07
+			}
+			
+			traits = { military_theorist }
+		}
+		
+		PRS_hossein_afkhami = {
+
+			picture = generic_navy_arab_1
+			
+			allowed = {
+				original_tag = PRS
+			}
+			
+			research_bonus = {
+				naval_doctrine = 0.07
+			}
+			
+			traits = { naval_theorist }
+		}	
+
+		PRS_ali_akbar_deiva = {
+
+			picture = generic_air_arab_2
+			
+			allowed = {
+				original_tag = PRS
+			}
+			
+			research_bonus = {
+				air_doctrine = 0.07
+			}
+			
+			traits = { air_warfare_theorist }
+		}
+
+	}
+}

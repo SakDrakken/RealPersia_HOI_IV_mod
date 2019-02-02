@@ -1,0 +1,281 @@
+focus_tree = { 
+id = 669
+country = { 
+factor = 0 
+modifier = { 
+add = 10 
+tag = PRS 
+} 
+} 
+#Focus for Communism Support
+focus = { 
+id = PRS_communismsupport
+icon = GFX_goal_support_communism
+x = 16
+y = 0
+cost = 10
+available_if_capitulated = yes 
+mutually_exclusive = { focus = PRS_nationalismsupport } 
+mutually_exclusive = { focus = PRS_socialdemocracysupport } 
+mutually_exclusive = { focus = PRS_ } 
+mutually_exclusive = { focus = PRS_nationalismsupport } 
+ai_will_do = { 
+ factor = 1
+ } 
+completion_reward = { 
+add_popularity= { 
+ideology = communism
+popularity = 0.16 
+}add_national_unity= 0.05
+ } 
+
+ } 
+
+#Focus for Military Order
+focus = { 
+id = PRS_militaryorder
+icon = GFX_goal_generic_small_arms
+x = 1
+y = 0
+cost = 5
+available_if_capitulated = yes 
+ai_will_do = { 
+ factor = 1
+ } 
+completion_reward = { 
+add_war_support= 10
+add_political_power= 20
+ } 
+
+ } 
+
+#Focus for Industrial Order
+focus = { 
+id = PRS_industrialorder
+icon = GFX_goal_generic_construct_infrastructure
+x = 7
+y = 0
+cost = 5
+available_if_capitulated = yes 
+ai_will_do = { 
+ factor = 2
+ } 
+completion_reward = { 
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+ }
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+ set_state_flag = 696969
+ }
+ } 
+
+ } 
+
+#Focus for Research Order
+focus = { 
+id = PRS_researchorder
+icon = GFX_goal_tfv_generic_tech_sharing
+x = 4
+y = 0
+cost = 5
+available_if_capitulated = yes 
+ai_will_do = { 
+ factor = 1
+ } 
+completion_reward = { 
+add_research_slot= 1
+ } 
+
+ } 
+
+#Focus for University of Tehran
+focus = { 
+id = PRS_universityoftehran
+icon = GFX_goal_tfv_generic_tech_sharing
+x = 4
+y = 1
+cost = 9
+available_if_capitulated = yes 
+prerequisite = { focus = PRS_researchorder } 
+ai_will_do = { 
+ factor = 1
+ } 
+completion_reward = { 
+add_research_slot= 1
+ } 
+
+ } 
+
+#Focus for Faculty of Industrial Engineering
+focus = { 
+id = PRS_facultyofindustrialengineering
+icon = GFX_goal_generic_production2
+x = 5
+y = 2
+cost = 10
+available_if_capitulated = yes 
+prerequisite = { focus = PRS_universityoftehran } 
+prerequisite = { focus = PRS_industrialorder } 
+ai_will_do = { 
+ factor = 1
+ } 
+completion_reward = { 
+add_tech_bonus= {
+ bonus = 0.8 
+uses = 6 
+category = industry
+}
+ } 
+
+ } 
+
+#Focus for Faculty of Military Engineering
+focus = { 
+id = PRS_facultyofmilitaryengineering
+icon = GFX_goal_generic_production
+x = 3
+y = 2
+cost = 10
+available_if_capitulated = yes 
+prerequisite = { focus = PRS_universityoftehran } 
+prerequisite = { focus = PRS_militaryorder } 
+mutually_exclusive = { focus = PRS_facultyofindustrialengineering } 
+mutually_exclusive = { focus = PRS_ } 
+ai_will_do = { 
+ factor = 1
+ } 
+completion_reward = { 
+add_tech_bonus= {
+ bonus = 0.8 
+uses = 2 
+category = infantry
+}
+ } 
+
+ } 
+
+#Focus for Ministry of War Renewal
+focus = { 
+id = PRS_ministryofwarrenewal
+icon = GFX_goal_generic_political_pressure
+x = 1
+y = 3
+cost = 10
+available_if_capitulated = yes 
+prerequisite = { focus = PRS_militaryorder } 
+ai_will_do = { 
+ factor = 1
+ } 
+completion_reward = { 
+add_tech_bonus= {
+ bonus = 0.4 
+uses = 4 
+category = infantry
+}
+ } 
+
+ } 
+
+#Focus for Faculty of R&D
+focus = { 
+id = PRS_facultyofrd
+icon = GFX_goal_generic_air_production
+x = 4
+y = 3
+cost = 14
+available_if_capitulated = yes 
+prerequisite = { focus = PRS_facultyofmilitaryengineering focus = PRS_facultyofindustrialengineering } 
+ai_will_do = { 
+ factor = 1
+ } 
+completion_reward = { 
+add_tech_bonus= {
+ bonus = 0.9 
+uses = 6 
+category = electronic_mechanical_engineering
+}
+ } 
+
+ } 
+
+#Focus for Ministry of Industry Renewal
+focus = { 
+id = PRS_ministryofindustryrenewal
+icon = GFX_goal_generic_construct_mil_factory
+x = 7
+y = 3
+cost = 10
+available_if_capitulated = yes 
+prerequisite = { focus = PRS_industrialorder } 
+ai_will_do = { 
+ factor = 1
+ } 
+completion_reward = { 
+add_tech_bonus= {
+ bonus = 0.7 
+uses = 6 
+category = industry
+}
+add_national_unity = -0.02
+ } 
+
+ } 
+
+#Focus for Nationalism Support
+focus = { 
+id = PRS_nationalismsupport
+icon = GFX_goal_support_fascism
+x = 10
+y = 0
+cost = 10
+available_if_capitulated = yes 
+mutually_exclusive = { focus = PRS_communismsupport } 
+mutually_exclusive = { focus = PRS_socialdemocracysupport } 
+mutually_exclusive = { focus = PRS_ } 
+mutually_exclusive = { focus = PRS_communismsupport } 
+ai_will_do = { 
+ factor = 1
+ } 
+completion_reward = { 
+add_popularity= { 
+ideology = fascism 
+popularity = 0.06 
+}add_national_unity= 0.05
+ } 
+
+ } 
+
+#Focus for Social Democracy Support
+focus = { 
+id = PRS_socialdemocracysupport
+icon = GFX_goal_support_democracy
+x = 13
+y = 0
+cost = 10
+available_if_capitulated = yes 
+mutually_exclusive = { focus = PRS_nationalismsupport }mutually_exclusive = { focus = PRS_ focus = PRS_nationalismsupport }ai_will_do = { 
+ factor = 1
+ } 
+completion_reward = { 
+add_national_unity= 0.02
+
+add_popularity= { 
+ideology = democracy
+popularity = 0.1 
+}
+ } 
+
+ } 
+
+#End of focuses 
+ }
