@@ -20,9 +20,28 @@ ideas = {
 				industrial_capacity_dockyard = 0.08
 				conscription_factor = -0.10
 			}
-		}
+			}
 
-}
+			PRS_national_industry = {
+			
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = generic_production_bonus
+	
+			modifier = {
+				production_speed_arms_factory_factor = 0.6
+			}
+		}
+		}
 	political_advisor = {
 
 		PRS_ali_zohayli = {

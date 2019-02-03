@@ -1,281 +1,912 @@
 focus_tree = { 
-id = 669
-country = { 
-factor = 0 
-modifier = { 
-add = 10 
-tag = PRS 
-} 
-} 
-#Focus for Communism Support
-focus = { 
-id = PRS_communismsupport
-icon = GFX_goal_support_communism
-x = 16
-y = 0
-cost = 10
-available_if_capitulated = yes 
-mutually_exclusive = { focus = PRS_nationalismsupport } 
-mutually_exclusive = { focus = PRS_socialdemocracysupport } 
-mutually_exclusive = { focus = PRS_ } 
-mutually_exclusive = { focus = PRS_nationalismsupport } 
-ai_will_do = { 
- factor = 1
- } 
-completion_reward = { 
-add_popularity= { 
-ideology = communism
-popularity = 0.16 
-}add_national_unity= 0.05
- } 
+	id = 669
+	country = { 
+		factor = 0 
+		modifier = { 
+			add = 10 
+			tag = PRS 
+		} 
+	}
+	
+	#Focus for Communism Support
+	focus = { 
+		id = PRS_communismsupport
+		icon = GFX_goal_support_communism
+		x = 18
+		y = 0
+		cost = 10
+		available_if_capitulated = yes 
+		mutually_exclusive = { focus = PRS_nationalismsupport } 
+		mutually_exclusive = { focus = PRS_socialdemocracysupport } 
+		mutually_exclusive = { focus = PRS_nationalismsupport } 
+		ai_will_do = { 
+		 factor = 1
+		 } 
+		completion_reward = { 
+		add_popularity= { 
+		ideology = communism
+		popularity = 0.16 
+		}
+		add_stability= 0.05
+		} 
 
- } 
+	 } 
 
-#Focus for Military Order
-focus = { 
-id = PRS_militaryorder
-icon = GFX_goal_generic_small_arms
-x = 1
-y = 0
-cost = 5
-available_if_capitulated = yes 
-ai_will_do = { 
- factor = 1
- } 
-completion_reward = { 
-add_war_support= 10
-add_political_power= 20
- } 
+	#Focus for Military Order
+	focus = { 
+	id = PRS_militaryorder
+	icon = GFX_goal_generic_small_arms
+	x = 1
+	y = 0
+	cost = 5
+	available_if_capitulated = yes 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_war_support= 0.3
+	add_political_power= 20
+	 } 
 
- } 
+	 } 
 
-#Focus for Industrial Order
-focus = { 
-id = PRS_industrialorder
-icon = GFX_goal_generic_construct_infrastructure
-x = 7
-y = 0
-cost = 5
-available_if_capitulated = yes 
-ai_will_do = { 
- factor = 2
- } 
-completion_reward = { 
-random_owned_controlled_state={
- limit = {
- free_building_slots = {
- building = industrial_complex
- size > 0
- include_locked = yes
- }
- }
- add_extra_state_shared_building_slots = 1
- add_building_construction = {
- type = industrial_complex
- level = 1
- instant_build = yes
- }
- set_state_flag = 696969
- }
- } 
+	#Focus for Industrial Order
+	focus = { 
+	id = PRS_industrialorder
+	icon = GFX_goal_generic_construct_infrastructure
+	x = 7
+	y = 0
+	cost = 5
+	available_if_capitulated = yes 
+	ai_will_do = { 
+	 factor = 2
+	 } 
+	completion_reward = { 
+	random_owned_controlled_state={
+	 limit = {
+	 free_building_slots = {
+	 building = industrial_complex
+	 size > 0
+	 include_locked = yes
+	 }
+	 }
+	 add_extra_state_shared_building_slots = 1
+	 add_building_construction = {
+	 type = industrial_complex
+	 level = 1
+	 instant_build = yes
+	 }
+	 set_state_flag = 696969
+	 }
+	 } 
 
- } 
+	 } 
 
-#Focus for Research Order
-focus = { 
-id = PRS_researchorder
-icon = GFX_goal_tfv_generic_tech_sharing
-x = 4
-y = 0
-cost = 5
-available_if_capitulated = yes 
-ai_will_do = { 
- factor = 1
- } 
-completion_reward = { 
-add_research_slot= 1
- } 
+	#Focus for Research Order
+	focus = { 
+	id = PRS_researchorder
+	icon = GFX_goal_tfv_generic_tech_sharing
+	x = 4
+	y = 0
+	cost = 5
+	available_if_capitulated = yes 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_research_slot= 1
+	 } 
 
- } 
+	 } 
 
-#Focus for University of Tehran
-focus = { 
-id = PRS_universityoftehran
-icon = GFX_goal_tfv_generic_tech_sharing
-x = 4
-y = 1
-cost = 9
-available_if_capitulated = yes 
-prerequisite = { focus = PRS_researchorder } 
-ai_will_do = { 
- factor = 1
- } 
-completion_reward = { 
-add_research_slot= 1
- } 
+	#Focus for University of Tehran
+	focus = { 
+	id = PRS_universityoftehran
+	icon = GFX_goal_tfv_generic_tech_sharing
+	x = 4
+	y = 1
+	cost = 12
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_researchorder } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_research_slot= 1
+	 } 
 
- } 
+	 } 
 
-#Focus for Faculty of Industrial Engineering
-focus = { 
-id = PRS_facultyofindustrialengineering
-icon = GFX_goal_generic_production2
-x = 5
-y = 2
-cost = 10
-available_if_capitulated = yes 
-prerequisite = { focus = PRS_universityoftehran } 
-prerequisite = { focus = PRS_industrialorder } 
-ai_will_do = { 
- factor = 1
- } 
-completion_reward = { 
-add_tech_bonus= {
- bonus = 0.8 
-uses = 6 
-category = industry
-}
- } 
+	#Focus for Faculty of Industrial Engineering
+	focus = { 
+	id = PRS_facultyofindustrialengineering
+	icon = GFX_goal_generic_production2
+	x = 5
+	y = 2
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_universityoftehran } 
+	prerequisite = { focus = PRS_industrialorder } 
+	mutually_exclusive = { focus = PRS_facultyofmilitaryengineering } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_tech_bonus= {
+	 bonus = 0.8 
+	uses = 6 
+	category = industry
+	}
+	 } 
 
- } 
+	 } 
 
-#Focus for Faculty of Military Engineering
-focus = { 
-id = PRS_facultyofmilitaryengineering
-icon = GFX_goal_generic_production
-x = 3
-y = 2
-cost = 10
-available_if_capitulated = yes 
-prerequisite = { focus = PRS_universityoftehran } 
-prerequisite = { focus = PRS_militaryorder } 
-mutually_exclusive = { focus = PRS_facultyofindustrialengineering } 
-mutually_exclusive = { focus = PRS_ } 
-ai_will_do = { 
- factor = 1
- } 
-completion_reward = { 
-add_tech_bonus= {
- bonus = 0.8 
-uses = 2 
-category = infantry
-}
- } 
+	#Focus for Faculty of Military Engineering
+	focus = { 
+	id = PRS_facultyofmilitaryengineering
+	icon = GFX_goal_generic_production
+	x = 3
+	y = 2
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_universityoftehran } 
+	prerequisite = { focus = PRS_militaryorder } 
+	mutually_exclusive = { focus = PRS_facultyofindustrialengineering } 
+	mutually_exclusive = { focus = PRS_ } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_tech_bonus= {
+	 bonus = 0.8 
+	uses = 2 
+	category = motorized_equipment
+	}
+	 } 
 
- } 
+	 } 
 
-#Focus for Ministry of War Renewal
-focus = { 
-id = PRS_ministryofwarrenewal
-icon = GFX_goal_generic_political_pressure
-x = 1
-y = 3
-cost = 10
-available_if_capitulated = yes 
-prerequisite = { focus = PRS_militaryorder } 
-ai_will_do = { 
- factor = 1
- } 
-completion_reward = { 
-add_tech_bonus= {
- bonus = 0.4 
-uses = 4 
-category = infantry
-}
- } 
+	#Focus for Ministry of War Renewal
+	focus = { 
+	id = PRS_ministryofwarrenewal
+	icon = GFX_goal_generic_political_pressure
+	x = 1
+	y = 3
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_militaryorder } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_tech_bonus= {
+	 bonus = 0.4 
+	uses = 4 
+	category = infantry_weapons
+	}
+	 } 
 
- } 
+	 } 
 
-#Focus for Faculty of R&D
-focus = { 
-id = PRS_facultyofrd
-icon = GFX_goal_generic_air_production
-x = 4
-y = 3
-cost = 14
-available_if_capitulated = yes 
-prerequisite = { focus = PRS_facultyofmilitaryengineering focus = PRS_facultyofindustrialengineering } 
-ai_will_do = { 
- factor = 1
- } 
-completion_reward = { 
-add_tech_bonus= {
- bonus = 0.9 
-uses = 6 
-category = electronic_mechanical_engineering
-}
- } 
+	#Focus for Faculty of R&D
+	focus = { 
+	id = PRS_facultyofrd
+	icon = GFX_goal_generic_air_production
+	x = 4
+	y = 3
+	cost = 14
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_facultyofmilitaryengineering focus = PRS_facultyofindustrialengineering } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_tech_bonus= {
+	 bonus = 0.9 
+	uses = 6 
+	category = electronics
+	}
+	 } 
 
- } 
+	 } 
 
-#Focus for Ministry of Industry Renewal
-focus = { 
-id = PRS_ministryofindustryrenewal
-icon = GFX_goal_generic_construct_mil_factory
-x = 7
-y = 3
-cost = 10
-available_if_capitulated = yes 
-prerequisite = { focus = PRS_industrialorder } 
-ai_will_do = { 
- factor = 1
- } 
-completion_reward = { 
-add_tech_bonus= {
- bonus = 0.7 
-uses = 6 
-category = industry
-}
-add_national_unity = -0.02
- } 
+	#Focus for Ministry of Industry Renewal
+	focus = { 
+	id = PRS_ministryofindustryrenewal
+	icon = GFX_goal_generic_construct_mil_factory
+	x = 7
+	y = 3
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_industrialorder } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_tech_bonus= {
+	 bonus = 0.7 
+	uses = 6 
+	category = industry
+	}
+	add_stability = -0.02
+	 } 
 
- } 
+	 } 
 
-#Focus for Nationalism Support
-focus = { 
-id = PRS_nationalismsupport
-icon = GFX_goal_support_fascism
-x = 10
-y = 0
-cost = 10
-available_if_capitulated = yes 
-mutually_exclusive = { focus = PRS_communismsupport } 
-mutually_exclusive = { focus = PRS_socialdemocracysupport } 
-mutually_exclusive = { focus = PRS_ } 
-mutually_exclusive = { focus = PRS_communismsupport } 
-ai_will_do = { 
- factor = 1
- } 
-completion_reward = { 
-add_popularity= { 
-ideology = fascism 
-popularity = 0.06 
-}add_national_unity= 0.05
- } 
+	#Focus for Nationalism Support
+	focus = { 
+	id = PRS_nationalismsupport
+	icon = GFX_goal_support_fascism
+	x = 10
+	y = 0
+	cost = 10
+	available_if_capitulated = yes 
+	mutually_exclusive = { focus = PRS_communismsupport } 
+	mutually_exclusive = { focus = PRS_socialdemocracysupport } 
+	mutually_exclusive = { focus = PRS_ } 
+	mutually_exclusive = { focus = PRS_communismsupport } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_popularity= { 
+	ideology = fascism 
+	popularity = 0.06 
+	}add_stability= 0.05
+	 } 
 
- } 
+	 } 
 
-#Focus for Social Democracy Support
-focus = { 
-id = PRS_socialdemocracysupport
-icon = GFX_goal_support_democracy
-x = 13
-y = 0
-cost = 10
-available_if_capitulated = yes 
-mutually_exclusive = { focus = PRS_nationalismsupport }mutually_exclusive = { focus = PRS_ focus = PRS_nationalismsupport }ai_will_do = { 
- factor = 1
- } 
-completion_reward = { 
-add_national_unity= 0.02
+	#Focus for Social Democracy Support
+	focus = { 
+	id = PRS_socialdemocracysupport
+	icon = GFX_goal_support_democracy
+	x = 14
+	y = 0
+	cost = 10
+	available_if_capitulated = yes 
+	mutually_exclusive = { focus = PRS_nationalismsupport }mutually_exclusive = { focus = PRS_ focus = PRS_nationalismsupport focus = PRS_communismsupport }ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_stability= 0.02
 
-add_popularity= { 
-ideology = democracy
-popularity = 0.1 
-}
- } 
+	add_popularity= { 
+	ideology = democratic
+	popularity = 0.1 
+	}
+	 } 
 
- } 
+	 } 
 
-#End of focuses 
+	#Focus for The Great Purge
+	focus = { 
+	id = PRS_thegreatpurge
+	icon = GFX_goal_generic_secret_weapon
+	x = 10
+	y = 1
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_nationalismsupport } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_ideas= collectivist_ethos_focus
+	 } 
+
+	 } 
+
+	#Focus for Industrial Focus
+	focus = { 
+	id = PRS_industrialfocus
+	icon = GFX_goal_generic_production
+	x = 24
+	y = 0
+	cost = 13
+	available_if_capitulated = yes 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	random_owned_controlled_state = { limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = PRS }
+	 } 
+
+	 } 
+
+	#Focus for Infrastructure Effort I
+	focus = { 
+	id = PRS_infrastructureefforti
+	icon = GFX_goal_generic_construct_infrastructure
+	x = 22
+	y = 1
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_industrialfocus } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	random_owned_controlled_state = { add_building_construction = { type = infrastructure level = 5 instant_build = yes } }
+	 } 
+
+	 } 
+
+	#Focus for Civilian Factories I
+	focus = { 
+	id = PRS_civilianfactoriesi
+	icon = GFX_goal_generic_construction2
+	x = 24
+	y = 1
+	cost = 14
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_industrialfocus } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	random_owned_controlled_state = { limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 2 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = PRS }
+	 } 
+
+	 } 
+
+	#Focus for The Unity of the Commune
+	focus = { 
+	id = PRS_theunityofthecommune
+	icon = GFX_goal_generic_dangerous_deal
+	x = 19
+	y = 3
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_foundingthepersiancommune } 
+	mutually_exclusive = { focus = PRS_socialjustice } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_stability= 0.30
+	add_war_support= 0.1
+	 } 
+
+	 } 
+
+	#Focus for Social Justice
+	focus = { 
+	id = PRS_socialjustice
+	icon = GFX_goal_generic_intelligence_exchange
+	x = 17
+	y = 3
+	cost = 7
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_communityservices } 
+	mutually_exclusive = { focus = PRS_theunityofthecommune } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_war_support= -0.45
+	 } 
+
+	 } 
+
+	#Focus for Founding the Persian Commune
+	focus = { 
+	id = PRS_foundingthepersiancommune
+	icon = GFX_goal_generic_war_with_comintern
+	x = 19
+	y = 2
+	cost = 6
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_communismsupport } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_stability= 0.5
+	 } 
+
+	 } 
+
+	#Focus for The Great Federation of Persia Part IV
+	focus = { 
+	id = PRS_thegreatfederationofpersiapartiv
+	icon = GFX_goal_generic_attack_allies
+	x = 14
+	y = 4
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_thegreatfederationofpersiapartiii } 
+	mutually_exclusive = { focus = PRS_fascistcoup } 
+	mutually_exclusive = { focus = PRS_forthebettertommorows } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	start_civil_war= {
+	 ideology = democratic 
+	size = 0.8 
+	}
+	 } 
+
+	 } 
+
+	#Focus for The Great Federation of Persia Part III
+	focus = { 
+	id = PRS_thegreatfederationofpersiapartiii
+	icon = GFX_goal_generic_national_unity
+	x = 14
+	y = 3
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_thegreatfederationofpersiapartii } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_popularity= { 
+	ideology = democratic 
+	popularity = 0.6 
+	}
+	 } 
+
+	 } 
+
+	#Focus for The Great Federation of Persia Part II
+	focus = { 
+	id = PRS_thegreatfederationofpersiapartii
+	icon = GFX_goal_tripartite_pact
+	x = 14
+	y = 2
+	cost = 5
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_thegreatfederationofpersiaparti } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_stability= 0.05
+	add_popularity= { 
+	ideology = democratic 
+	popularity = 0.3 
+	}
+	 } 
+
+	 } 
+
+	#Focus for The Great Federation of Persia Part I
+	focus = { 
+	id = PRS_thegreatfederationofpersiaparti
+	icon = GFX_goal_molotov_ribbentrop_pact
+	x = 14
+	y = 1
+	cost = 15
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_socialdemocracysupport } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	set_stability= 0.1
+	 } 
+
+	 } 
+
+	#Focus for Tank Research
+	focus = { 
+	id = PRS_tankresearch
+	icon = GFX_goal_continuous_armor_production
+	x = 8
+	y = 4
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_ministryofwarrenewal focus = PRS_heavyweaponsresearch } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_tech_bonus= {
+	 bonus = 0.4 
+	uses = 3
+	category = armor 
+	}
+	 } 
+
+	 } 
+
+	#Focus for Community Services
+	focus = { 
+	id = PRS_communityservices
+	icon = GFX_focus_YUG_pan_slavic_congress
+	x = 17
+	y = 2
+	cost = 12
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_socialdemocracysupport focus = PRS_communismsupport } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_ideas= PRS_national_industry
+	 } 
+
+	 } 
+
+	#Focus for Fascist Coup
+	focus = { 
+	id = PRS_fascistcoup
+	icon = GFX_goal_generic_attack_allies
+	x = 12
+	y = 4
+	cost = 15
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_persiafirst } 
+	mutually_exclusive = { focus = PRS_thegreatfederationofpersiapartiv } 
+	mutually_exclusive = { focus = PRS_forthebettertommorows } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	start_civil_war= {
+	 ideology = fascism 
+	size = 0.6 
+	}
+	 } 
+
+	 } 
+
+	#Focus for Heavy Weapons Research
+	focus = { 
+	id = PRS_heavyweaponsresearch
+	icon = GFX_goal_generic_army_tanks
+	x = 9
+	y = 2
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_thegreatpurge } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_tech_bonus= {
+	 bonus = 0.5 
+	uses = 3 
+	category = armor 
+	}
+	 } 
+
+	 } 
+
+	#Focus for Military Research Order
+	focus = { 
+	id = PRS_militaryresearchorder
+	icon = GFX_goal_generic_scientific_exchange
+	x = 4
+	y = 5
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_preparationsforwar } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_research_slot= 1
+	 } 
+
+	 } 
+
+	#Focus for Preparations for war
+	focus = { 
+	id = PRS_preparationsforwar
+	icon = GFX_goal_generic_air_production
+	x = 4
+	y = 4
+	cost = 12
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_ministryofwarrenewal } 
+	prerequisite = { focus = PRS_ministryofindustryrenewal } 
+	prerequisite = { focus = PRS_facultyofrd } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_ideas= deterrence
+	 } 
+
+	 } 
+
+	#Focus for War Engineering
+	focus = { 
+	id = PRS_warengineering
+	icon = GFX_goal_continuous_reduce_training_time
+	x = 10
+	y = 3
+	cost = 14
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_persiafirst } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	random_owned_controlled_state = { limit = { free_building_slots = { building = arms_factory size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 2 add_building_construction = { type = arms_factory level = 2 instant_build = yes } set_state_flag = PRS }
+	 } 
+
+	 } 
+
+	#Focus for Persia First
+	focus = { 
+	id = PRS_persiafirst
+	icon = GFX_goal_generic_political_pressure
+	x = 11
+	y = 2
+	cost = 8
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_thegreatpurge } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+		add_ideas= militarism_focus
+	 } 
+
+	 } 
+
+	#Focus for Unite Back the Persia
+	focus = { 
+	id = PRS_unitebackthepersia
+	icon = GFX_goal_generic_major_alliance
+	x = 14
+	y = 5
+	cost = 15
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_thegreatfederationofpersiapartiv focus = PRS_fascistcoup focus = PRS_forthebettertommorows } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_stability= 0.80
+	 } 
+
+	 } 
+
+	#Focus for Military Factories II
+	focus = { 
+	id = PRS_militaryfactoriesii
+	icon = GFX_goal_generic_army_tanks
+	x = 26
+	y = 2
+	cost = 13
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_militaryfactoriesi } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	random_owned_controlled_state = { limit = { free_building_slots = { building = arms_factory size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 2 add_building_construction = { type = arms_factory level = 1 instant_build = yes } set_state_flag = PRS }
+	 } 
+
+	 } 
+
+	#Focus for Core Military Factory State
+	focus = { 
+	id = PRS_coremilitaryfactorystate
+	icon = GFX_goal_generic_construct_civilian
+	x = 26
+	y = 3
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_militaryfactoriesii } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	random_owned_controlled_state = { limit = { free_building_slots = { building = arms_factory size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 6 add_building_construction = { type = arms_factory level = 6 instant_build = yes } set_state_flag = PRS }
+	 } 
+
+	 } 
+
+	#Focus for Medium Tank Research
+	focus = { 
+	id = PRS_mediumtankresearch
+	icon = GFX_goal_continuous_armor_production
+	x = 8
+	y = 6
+	cost = 14
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_lighttankresearch } 
+	prerequisite = { focus = PRS_heavytankresearch } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_tech_bonus= {
+	 bonus = 0.8 
+	uses = 4 
+	category = cat_medium_armor 
+	}
+	 } 
+
+	 } 
+
+	#Focus for For the Better Tommorows!
+	focus = { 
+	id = PRS_forthebettertommorows
+	icon = GFX_goal_generic_attack_allies
+	x = 16
+	y = 4
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_theunityofthecommune } 
+	mutually_exclusive = { focus = PRS_fascistcoup } 
+	mutually_exclusive = { focus = PRS_thegreatfederationofpersiapartiv } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	start_civil_war= {
+	 ideology = communism 
+	size = 0.5 
+	}
+	 } 
+
+	 } 
+
+	#Focus for Military Factories I
+	focus = { 
+	id = PRS_militaryfactoriesi
+	icon = GFX_goal_generic_army_tanks
+	x = 26
+	y = 1
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_industrialfocus } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	random_owned_controlled_state = { limit = { free_building_slots = { building = arms_factory size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 2 add_building_construction = { type = arms_factory level = 1 instant_build = yes } set_state_flag = PRS }
+	 } 
+
+	 } 
+
+	#Focus for Infrastructure Effort II
+	focus = { 
+	id = PRS_infrastructureeffortii
+	icon = GFX_goal_generic_construct_infrastructure
+	x = 22
+	y = 2
+	cost = 8
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_infrastructureefforti } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	random_owned_controlled_state = { add_building_construction = { type = infrastructure level = 5 instant_build = yes } }
+	 } 
+
+	 } 
+
+	#Focus for Civilian Factories II
+	focus = { 
+	id = PRS_civilianfactoriesii
+	icon = GFX_goal_generic_construction2
+	x = 24
+	y = 2
+	cost = 10
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_civilianfactoriesi } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	random_owned_controlled_state = { limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = PRS }
+	 } 
+
+	 } 
+
+	#Focus for Civilian Factories III
+	focus = { 
+	id = PRS_civilianfactoriesiii
+	icon = GFX_goal_generic_construction2
+	x = 24
+	y = 3
+	cost = 13
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_civilianfactoriesii } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	random_owned_controlled_state = { limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = PRS }
+	 } 
+
+	 } 
+
+	#Focus for Infrastructure Effort III
+	focus = { 
+	id = PRS_infrastructureeffortiii
+	icon = GFX_goal_generic_construct_infrastructure
+	x = 22
+	y = 3
+	cost = 13
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_infrastructureeffortii } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	random_owned_controlled_state = { add_building_construction = { type = infrastructure level = 5 instant_build = yes } }
+	 } 
+
+	 } 
+
+	#Focus for The Industrial Revolution
+	focus = { 
+	id = PRS_theindustrialrevolution
+	icon = GFX_goal_generic_construct_mil_factory
+	x = 24
+	y = 5
+	cost = 13
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_theunityofthecommune } 
+	prerequisite = { focus = PRS_civilianfactoriesiii } 
+	prerequisite = { focus = PRS_infrastructureeffortiii } 
+	prerequisite = { focus = PRS_coremilitaryfactorystate } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	random_owned_controlled_state = { limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = PRS }
+	random_owned_controlled_state = { limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = PRS }
+	random_owned_controlled_state = { limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = PRS }
+	random_owned_controlled_state = { limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = PRS }
+	 } 
+
+	 } 
+
+	#Focus for Light Tank Research
+	focus = { 
+	id = PRS_lighttankresearch
+	icon = GFX_goal_continuous_armor_production
+	x = 7
+	y = 5
+	cost = 8
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_tankresearch } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_tech_bonus= {
+	 bonus = 0.7 
+	uses = 2 
+	category = cat_light_armor 
+	}
+	 } 
+
+	 } 
+
+	#Focus for Heavy Tank Research
+	focus = { 
+	id = PRS_heavytankresearch
+	icon = GFX_goal_continuous_armor_production
+	x = 9
+	y = 5
+	cost = 13
+	available_if_capitulated = yes 
+	prerequisite = { focus = PRS_tankresearch } 
+	ai_will_do = { 
+	 factor = 1
+	 } 
+	completion_reward = { 
+	add_tech_bonus= {
+	 bonus = 0.7 
+	uses = 2 
+	category = cat_heavy_armor
+	}
+	 } 
+
+	 } 
+
+	#End of focuses 
  }

@@ -1,4 +1,4 @@
-add_namespace = realpersianationalfocus
+﻿add_namespace = realpersianationalfocus
 
 ##Event: University of Tehran was opened
 country_event = {
